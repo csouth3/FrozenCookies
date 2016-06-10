@@ -221,7 +221,7 @@ var blacklist = [
   },
   {
 	  upgrades: [],
-	  buildings: [2, 3]
+	  buildings: [0, 2, 3]
   }
 ];
 
