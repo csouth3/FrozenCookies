@@ -503,7 +503,7 @@ function autoUpdateBuildingAchievementBlacklist() {
 		case 5:
 			var targetBuildingAmounts = [200, 200, 128, 100, 128, 100, 100, 100, 100, 100, 100, 100, 50, 50];
 			_.each(Game.ObjectsById, function (object, index) {
-				if (object.amount > targetBuildingAmounts[index] && !_.contains(blacklist[FrozenCookies.blacklist].buildings, index)) {
+				if (object.amount >= targetBuildingAmounts[index] && !_.contains(blacklist[FrozenCookies.blacklist].buildings, index)) {
 					blacklist[FrozenCookies.blacklist].buildings.push(index);
 				}
 			});
