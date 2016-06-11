@@ -498,6 +498,19 @@ function autoBlacklistOff() {
   }
 }
 
+function autoUpdateBuildingAchievementBlacklist() {
+	switch (FrozenCookies.blacklist) {
+		case 5:
+			var targetBuildingAmounts = [200, 200, 128, 100, 128, 100, 100, 100, 100, 100, 100, 100, 50, 50];
+			_.each(Game.ObjectsById, function (object, index) {
+				if (object.amount > targetBuildingAmounts[index] && !_.contains(blacklist[FrozenCookies.blacklist].buildings, index)) {
+					blacklist[FrozenCookies.blacklist].buildings.push(index);
+				}
+			});
+			break;
+	}
+}
+
 function getProbabilityList(listType) {
   var mod = getProbabilityModifiers(listType);
   var result = cumulativeProbabilityList[listType][mod];
@@ -1698,6 +1711,9 @@ function autoCookie() {
     if (FrozenCookies.autoBlacklistOff) {
       autoBlacklistOff();
     }
+	if (FrozenCookies.autoUpdateBuildingAchievementBlacklist) {
+		autoUpdateBuildingAchievementBlacklist();
+	}
     var currentFrenzy = (Game.frenzy ? Game.frenzyPower : 1) * (Game.clickFrenzy ? Game.clickFrenzyPower : 1);
     if (currentFrenzy != FrozenCookies.last_gc_state) {
       var hc_gain = FrozenCookies.hc_gain * 1;

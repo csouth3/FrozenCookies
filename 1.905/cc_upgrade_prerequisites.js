@@ -38,8 +38,13 @@ FrozenCookies.preferenceValues = {
   },
   blacklist: {
     hint: 'Blacklist purchases from the efficiency calculations',
-    display: ['No Blacklist', 'Speedrun Blacklist', 'Hardcore Blacklist', 'Grandmapocalypse Mode', 'No Buildings', 'Custom'],
+    display: ['No Blacklist', 'Speedrun Blacklist', 'Hardcore Blacklist', 'Grandmapocalypse Mode', 'No Buildings', 'Building Achievement Blacklist'],
     default: 0
+  },
+  autoUpdateBuildingAchievementBlacklist: {
+	  hint: 'Automatically adds buildings to the Building Achievement Blacklist once the target amount of that building is achieved',
+	  display: ['Auto Update Building Achievement Blacklist OFF', 'Auto Update Building Achievement Blacklist ON']
+	  default: 0
   },
 /*  timeTravelMethod: {
     hint: 'Time travel is unstable. This determines how time travel works. If you\'re unsure, don\'t touch this.',
