@@ -505,6 +505,7 @@ function autoUpdateBuildingAchievementBlacklist() {
 			_.each(Game.ObjectsById, function (object, index) {
 				if (object.amount >= targetBuildingAmounts[index] && !_.contains(blacklist[FrozenCookies.blacklist].buildings, index)) {
 					blacklist[FrozenCookies.blacklist].buildings.push(index);
+          logEvent("Blacklist Update", "Automatically added " + object.name + " to Building Achievement Blacklist");
 				}
 			});
 			break;
