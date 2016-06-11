@@ -43,7 +43,7 @@ FrozenCookies.preferenceValues = {
   },
   autoUpdateBuildingAchievementBlacklist: {
 	  hint: 'Automatically adds buildings to the Building Achievement Blacklist once the target amount of that building is achieved',
-	  display: ['Auto Update Building Achievement Blacklist OFF', 'Auto Update Building Achievement Blacklist ON']
+	  display: ['Auto Update Building Achievement Blacklist OFF', 'Auto Update Building Achievement Blacklist ON'],
 	  default: 0
   },
 /*  timeTravelMethod: {
