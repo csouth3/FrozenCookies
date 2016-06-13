@@ -502,10 +502,16 @@ function autoUpdateBuildingAchievementBlacklist() {
 	switch (FrozenCookies.blacklist) {
 		case 5:
 			var targetBuildingAmounts = [200, 200, 128, 100, 128, 100, 100, 100, 100, 100, 100, 100, 50, 50];
+			var blacklistBuildings = blacklist[FrozenCookies.blacklist].buildings;
 			_.each(Game.ObjectsById, function (object, index) {
-				if (object.amount >= targetBuildingAmounts[index] && !_.contains(blacklist[FrozenCookies.blacklist].buildings, index)) {
-					blacklist[FrozenCookies.blacklist].buildings.push(index);
-          logEvent("Blacklist Update", "Automatically added " + object.name + " to Building Achievement Blacklist");
+				if (object.amount >= targetBuildingAmounts[index] && !_.contains(blacklistBuildings, index)) {
+					if (blacklistBuildings.length === targetBuildingAmounts.length - 1) {
+						Game.Toggle('autoBuy','autobuyButton','Autobuy OFF','Autobuy ON');
+						toggleFrozen('autoBuy');
+						logEvent("Blacklist Update", "All buildings blacklisted, turning off autobuy.");
+					}
+					blacklistBuildings.push(index);
+					logEvent("Blacklist Update", "Automatically added " + object.name + " to Building Achievement Blacklist");
 				}
 			});
 			break;
