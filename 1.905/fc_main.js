@@ -504,15 +504,14 @@ function autoUpdateBuildingAchievementBlacklist() {
 			var targetBuildingAmounts = [200, 200, 128, 100, 128, 100, 100, 100, 100, 100, 100, 100, 50, 50];
 			var blacklistBuildings = blacklist[FrozenCookies.blacklist].buildings;
 			_.each(Game.ObjectsById, function (object, index) {
-				if (object.amount >= targetBuildingAmounts[index] && !_.contains(blacklistBuildings, index)) {
-					if (blacklistBuildings.length === targetBuildingAmounts.length - 1) {
-						Game.Toggle('autoBuy','autobuyButton','Autobuy OFF','Autobuy ON');
-						toggleFrozen('autoBuy');
-						logEvent("Blacklist Update", "All buildings blacklisted, turning off autobuy.");
-					}
+        var idx = _.indexOf(blacklistBuildings, index);
+				if (object.amount >= targetBuildingAmounts[index] && idx === -1) {
 					blacklistBuildings.push(index);
 					logEvent("Blacklist Update", "Automatically added " + object.name + " to Building Achievement Blacklist");
-				}
+				} else if (object.amount < targetBuildingAmounts[index] && idx !== -1) {
+          blacklistBuildings.splice(idx, 1);
+          logEvent("Blacklist Update", "Automatically removed " + object.name + " from Building Achievement Blacklist");
+        }
 			});
 			break;
 	}
@@ -1721,8 +1720,8 @@ function autoCookie() {
   	if (FrozenCookies.autoUpdateBuildingAchievementBlacklist) {
   		autoUpdateBuildingAchievementBlacklist();
   	}
-    if (FrozenCookies.blacklistAllUpgradesInBuildingAchievementBlacklist && FrozenCookies.blacklist === 5) {
-      blacklist[FrozenCookies.blacklist].upgrades = true;
+    if (FrozenCookies.blacklist === 5) {
+      blacklist[FrozenCookies.blacklist].upgrades = FrozenCookies.blacklistAllUpgradesInBuildingAchievementBlacklist ? true : [];
     }
     var currentFrenzy = (Game.frenzy ? Game.frenzyPower : 1) * (Game.clickFrenzy ? Game.clickFrenzyPower : 1);
     if (currentFrenzy != FrozenCookies.last_gc_state) {
