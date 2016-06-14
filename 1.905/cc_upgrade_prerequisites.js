@@ -42,9 +42,14 @@ FrozenCookies.preferenceValues = {
     default: 0
   },
   autoUpdateBuildingAchievementBlacklist: {
-	  hint: 'Automatically adds buildings to the Building Achievement Blacklist once the target amount of that building is achieved',
+	  hint: 'Automatically adds buildings to the Building Achievement Blacklist once the target amount of that building is achieved (otherwise this blacklist must be set manually in javascript)',
 	  display: ['Auto Update Building Achievement Blacklist OFF', 'Auto Update Building Achievement Blacklist ON'],
 	  default: 0
+  },
+  blacklistAllUpgradesInBuildingAchievementBlacklist: {
+    hint: 'Set whether the Building Achievement Blacklist option purchases upgrades or not',
+    display: ['Allow all upgrade purchases', 'Blacklist all upgrades'],
+    default: 0
   },
 /*  timeTravelMethod: {
     hint: 'Time travel is unstable. This determines how time travel works. If you\'re unsure, don\'t touch this.',
