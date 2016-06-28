@@ -1720,9 +1720,9 @@ function autoCookie() {
   	if (FrozenCookies.autoUpdateBuildingAchievementBlacklist) {
   		autoUpdateBuildingAchievementBlacklist();
   	}
-    if (FrozenCookies.blacklist === 5) {
-      blacklist[FrozenCookies.blacklist].upgrades = FrozenCookies.blacklistAllUpgradesInBuildingAchievementBlacklist ? true : [];
-    }
+//    if (FrozenCookies.blacklist === 5) {
+//      blacklist[FrozenCookies.blacklist].upgrades = FrozenCookies.blacklistAllUpgradesInBuildingAchievementBlacklist ? true : [];
+//    }
     var currentFrenzy = (Game.frenzy ? Game.frenzyPower : 1) * (Game.clickFrenzy ? Game.clickFrenzyPower : 1);
     if (currentFrenzy != FrozenCookies.last_gc_state) {
       var hc_gain = FrozenCookies.hc_gain * 1;
