@@ -230,7 +230,7 @@ var blacklist = [
     buildings: true
   },
   {
-	  upgrades: [182, 184, 185, 209],
+	  upgrades: [71, 72, 73, 74, 84, 85, 182, 184, 185, 209],
 	  buildings: []
   }
 ];
